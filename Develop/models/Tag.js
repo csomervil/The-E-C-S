@@ -13,7 +13,7 @@ Tag.init(
       autoIncrement: true,
       validate: {isFloat: true},
     },
-    tage_name: {
+    tag_name: {
       type: DataTypes.STRING,
     },
   },
