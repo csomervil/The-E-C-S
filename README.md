@@ -1,2 +1,1 @@
-# The-E-C-S
-E-Commerce System
+# E-commerce Back End Starter Code
