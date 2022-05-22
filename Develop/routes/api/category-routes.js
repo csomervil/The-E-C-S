@@ -5,7 +5,7 @@ const { Category, Product } = require('../../models');
 // getting all category infromation
 router.get('/', (req, res) => {
   try {
-    const categoryData = await Category.findAll({
+    const categoryData = Category.findAll({
       include: [{ model: Product }]
     });
     res.status(200).json(categoryData);
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 // getting a single peice of information by identification
 router.get('/:id', (req, res) => {
   try {
-    const categoryData = await Category.findByPk(req.params.id, {
+    const categoryData = Category.findByPk(req.params.id, {
       include: [{ model: Reader }]
     });
 
@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 // creating information
 router.post('/', (req, res) => {
   try {
-    const locationInformation = await Category.create({
+    const locationInformation = Category.create({
       category_id: req.body.category_id
     });
     res.status(200).json(locationInformation);
