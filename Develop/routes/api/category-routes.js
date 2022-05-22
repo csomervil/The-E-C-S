@@ -13,11 +13,12 @@ router.get('/', (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // getting a single peice of information by identification
 router.get('/:id', (req, res) => {
   try {
     const categoryData = Category.findByPk(req.params.id, {
-      include: [{ model: Reader }]
+      include: [{ model: Product }]
     });
 
     if (!categoryData) {
@@ -25,7 +26,7 @@ router.get('/:id', (req, res) => {
       return;
     }
 
-    res.status(200).json(categoryData);
+    res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -34,9 +35,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   try {
     const locationInformation = Category.create({
-      category_id: req.body.category_id
+      category_name: req.body.category_name
     });
-    res.status(200).json(locationInformation);
+    return res.status(200).json(locationInformation);
   } catch (err) {
     res.status(400).json(err);
   }

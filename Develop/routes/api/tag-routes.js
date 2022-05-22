@@ -32,22 +32,32 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // try {
-  //   const locationInformation = await Tag.create({
-  //     tag_id: req.body.tag_id
+  try {
+    const locationInformation = Tag.create({
+      tag_name: req.body.tag_name
+    });
+    res.status(200).json(locationInformation);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+  // Tag.create(req.body)
+  //   .then((tag) => {
+  //     if (req.body.productIds != null) {
+  //       const productTagIdArr = req.body.tagIds.map((product_id) => {
+  //         return {
+  //           tag_id: tag.id,
+  //           product_id,
+  //         };
+  //       });
+  //       return ProductTag.bulkCreate(productTagIdArr);
+  //     }
+  //     res.status(200).json(tag);
+  //   })
+  //   .then((productTagIds) => res.status(200).json(productTagIds))
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(400).json(err);
   //   });
-  //   res.status(200).json(locationInformation);
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
 });
 
 router.put('/:id', (req, res) => {
