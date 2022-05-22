@@ -32,9 +32,9 @@ router.get('/:id', async (req, res) => {
   }
 });
 // creating information
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const locationInformation = Category.create({
+    const locationInformation = await Category.create({
       category_name: req.body.category_name
     });
     return res.status(200).json(locationInformation);

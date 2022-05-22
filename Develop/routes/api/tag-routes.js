@@ -32,9 +32,9 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const locationInformation = Tag.create({
+    const locationInformation = await Tag.create({
       tag_name: req.body.tag_name
     });
     res.status(200).json(locationInformation);
