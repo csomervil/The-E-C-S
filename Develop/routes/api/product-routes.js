@@ -107,7 +107,7 @@ router.put('/:id', (req, res) => {
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
       // console.log(err);
-      res.json(updatedProductTags)
+      res.status(200).json(err);
     });
 });
 
