@@ -2,9 +2,7 @@
 
 # Introduction
 
-The ECS is used to store, delete, update, and retrieve information from a database.
-
-The ECS is a back-end project made using Node.js, and the MySQL database. Installations are used such as dotnev to avoid leaking private information. When using the application one must create a .env file and fill in the corresponding information found in the connection.js file. 
+The ECS is used to store, delete, update, and retrieve information from a database. It is a back-end project made using Node.js, and the MySQL database. Installations are used such as dotnev to avoid leaking private information. When using the application one must create a .env file and fill in the corresponding information found in the connection.js file. 
 
 # Usage:
 
